@@ -102,4 +102,4 @@ def identity_matrix(n: int) -> Matrix:
 	return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
 
 from pprint import pprint
-pprint(identity_matrix(5))
+#pprint(identity_matrix(5))
