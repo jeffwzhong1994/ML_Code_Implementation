@@ -34,6 +34,9 @@ def data_range(xs: List[float]) -> float:
 
 from linear_algebra import sum_of_squares
 
+def mean(xs: List[float]) -> float:
+	return sum(xs) / len(xs)
+
 def de_mean(xs: List[float]) -> List[float]:
 	"""Translate xs by subtracting its mean """
 	x_bar = mean(xs)
