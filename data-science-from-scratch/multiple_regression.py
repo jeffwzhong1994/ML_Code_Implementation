@@ -23,7 +23,7 @@ import tqdm
 from linear_algebra import vector_mean
 from gradient_descent import gradient_step
 
-def least_square_fit(xs: List[Vector],
+def least_squares_fit(xs: List[Vector],
 					ys: List[float],
 					learning_rate: float = 0.0001,
 					num_steps: int = 1000,
@@ -54,7 +54,7 @@ from gradient_descent import gradient_step
 
 random.seed(0)
 learning_rate = 0.001
-beta = least_square_fit(inputs, daily_minutes_good, learning_rate, 5000, 25)
+beta = least_squares_fit(inputs, daily_minutes_good, learning_rate, 5000, 25)
 print(beta)
 
 #Goodness of fit:
@@ -111,17 +111,17 @@ def estimate_sample_beta(pairs: List[Tuple[Vector, float]]):
 	print("bootstrap sample:", beta)
 	return beta
 
-random.seed(0)
+# random.seed(0)
 
-bootstrap_betas = bootstrap_statistic(list(zip(inputs, daily_minutes_good)),
-										estimate_sample_beta,
-										100)
+# bootstrap_betas = bootstrap_statistic(list(zip(inputs, daily_minutes_good)),
+# 										estimate_sample_beta,
+# 										100)
 
-bootstrap_standard_errors = [
-							standard_deviation([beta[i] for beta in bootstrap_betas])
-							for i in range(4)]
+# bootstrap_standard_errors = [
+# 							standard_deviation([beta[i] for beta in bootstrap_betas])
+# 							for i in range(4)]
 
-print(bootstrap_standard_errors)
+# print(bootstrap_standard_errors)
 
 from probability import normal_cdf
 
